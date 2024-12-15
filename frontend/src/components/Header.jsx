@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const userRole = localStorage.getItem('role'); // Get the user's role from localStorage
 
   // Define menu items for each role
@@ -12,11 +13,12 @@ const Header = () => {
     { path: '/view-courses', label: 'View Courses', roles: ['Admin','Student','Teacher'] },
     { path: '/my-courses', label: 'My Enrollments', roles: ['Student'] },
     { path: '/enroll-students', label: 'Enroll Student', roles: ['Admin'] },
-    { path: '/create-quiz', label: 'Create Quiz', roles: ['Admin'] },
+    // { path: '/create-quiz', label: 'Create Quiz', roles: ['Admin'] },
     { path: '/view-grades', label: 'View Grades', roles: ['Student'] },
     { path: '/grade-students/:courseId', label: 'Give Grades', roles: ['Teacher'] },
     { path: '/teacher-dashboard', label: 'Teacher Dashboard', roles: ['Teacher'] },
     { path: '/create-quiz', label: 'Student Quiz', roles: ['Teacher'] },
+    { path: '/available-quiz', label: 'available Quiz', roles: ['Student'] },
   ];
 
   const handleLogout = () => {
@@ -30,35 +32,18 @@ const Header = () => {
         <div className="navbar-wrapper">
           <div className="m-header flex items-center py-4 px-6 h-header-height">
             <a href="/" className="b-brand flex items-center gap-3">
-              <img src="../assets/images/logo-dark.svg" className="img-fluid logo-lg" alt="logo" />
-              <span className="badge bg-success-500/10 text-success-500 rounded-full theme-version">v1.0.0</span>
+              <img src="../assets/images/logos.png" width={150}   alt="logo" />
             </a>
           </div>
           <div className="navbar-content h-[calc(100vh_-_74px)] py-2.5">
-            <div className="card pc-user-card mx-[15px] mb-[15px] bg-theme-sidebaruserbg dark:bg-themedark-sidebaruserbg">
-              <div className="card-body !p-5">
-                <div className="flex items-center">
-                  <img className="shrink-0 w-[45px] h-[45px] rounded-full" src="../assets/images/user/avatar-1.jpg" alt="user-image" />
-                  <div className="ml-4 mr-2 grow">
-                    <h6 className="mb-0">John Smith</h6>
-                    <small>Administrator</small>
-                  </div>
-                  <a className="shrink-0 btn btn-icon inline-flex btn-link-secondary" data-pc-toggle="collapse" href="#pc_sidebar_userlink">
-                    <svg className="pc-icon w-[22px] h-[22px]">
-                      <use xlinkHref="#custom-sort-outline" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* MAIN SIDEBAR */}
             <ul className="pc-navbar">
-              <li className="pc-item pc-caption"><label>Navigation</label></li>
-                {menuItems
-                .filter((item) => item.roles.includes(userRole)) 
+            {menuItems
+                .filter((item) => item.roles.includes(userRole))
                 .map((item, index) => (
-                  <li key={index} className="pc-item">
+                  <li
+                    key={index}
+                    className={`pc-item ${location.pathname === item.path ? 'active' : ''}`} // Add 'active' class if the current path matches
+                  >
                     <a onClick={() => navigate(item.path)} className="pc-link">
                       <span className="pc-mtext">{item.label}</span>
                     </a>

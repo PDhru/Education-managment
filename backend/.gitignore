@@ -12,9 +12,6 @@ pids/
 *.seed
 *.pid.lock
 
-# dotenv environment variable files
-.env
-
 # Image uploads directory (if storing images locally)
 uploads/
 

@@ -89,3 +89,35 @@ exports.submitQuiz = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
+
+
+// Submit a quiz for a student
+exports.submitStudentQuiz = async (req, res) => {
+  try {
+    const { quizId } = req.params;
+    const { answers } = req.body; // { questionIndex: selectedOption }
+
+    const quiz = await Quiz.findById(quizId);
+    if (!quiz) {
+      return res.status(404).json({ message: 'Quiz not found.' });
+    }
+
+    // Calculate the score
+    let score = 0;
+    quiz.questions.forEach((question, index) => {
+      if (answers[index] === question.correctAnswer) {
+        score += 1;
+      }
+    });
+
+    res.status(200).json({
+      message: 'Quiz submitted successfully.',
+      score,
+      totalQuestions: quiz.questions.length,
+    });
+  } catch (error) {
+    console.error('Error submitting quiz:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};
+

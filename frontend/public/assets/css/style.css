@@ -2367,7 +2367,7 @@ text:is([data-pc-theme="dark"] *),.apexcharts-theme-light .apexcharts-menu-icon:
 }
 .btn{
   display: inline-block;
-  border-radius: 20px;
+  border-radius: 5px;
   border-width: 1px;
   border-color: transparent;
   background-color: transparent;

@@ -16,6 +16,8 @@ import ViewEnrolledCourses from './ViewEnrolledCourses';
 import EnrollStudent from './EnrollStudent';
 import TeacherDashboard from './TeacherDashboard';
 import CreateQuizPage from './CreateQuizPage';
+import AvailableQuizzesPage from './AvailableQuizzesPage';
+import TakeQuizPage from './TakeQuizPage';
 
 function App() {
   return (
@@ -35,6 +37,9 @@ function App() {
 
           <Route path="/teacher-dashboard" element={<ProtectedRoute allowedRoles={['Teacher']}><TeacherDashboard /></ProtectedRoute>} />
           <Route path="/create-quiz" element={<ProtectedRoute allowedRoles={['Teacher']}><CreateQuizPage /></ProtectedRoute>} />
+
+          <Route path="/available-quiz" element={<ProtectedRoute allowedRoles={['Student']}><AvailableQuizzesPage /></ProtectedRoute>} />
+          <Route path="/student/quiz/:quizId" element={ <ProtectedRoute allowedRoles={['Student']}><TakeQuizPage /></ProtectedRoute>}/>
 
           <Route path="/enroll-students" element={<ProtectedRoute allowedRoles={['Admin']}><EnrollStudent/></ProtectedRoute>} />
           <Route path="/my-courses" element={<ProtectedRoute allowedRoles={['Student']}><ViewEnrolledCourses/></ProtectedRoute>} />

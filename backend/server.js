@@ -10,6 +10,7 @@ const analyticsRoutes = require('./routes/analyticsRoutes');
 const assignmentRoutes = require('./routes/assignmentRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
 const quizRoutes = require('./routes/quizRoutes');
+const studentRoutes = require('./routes/studentRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -31,6 +32,7 @@ app.use('/api/teacher', teacherRoutes)
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/assignments', assignmentRoutes);
 app.use('/api/quiz', quizRoutes);
+app.use('/api/student', studentRoutes);
 
 app.get('/', (req, res) => {
   console.log("JWT Token:", token);
