@@ -19,7 +19,10 @@ dotenv.config();
 connectDB();
 
 // ALL ROUTES
-app.use(cors());
+app.use(cors({
+  origin:'https://education-managment-one.vercel.app',
+  credentials:true
+}));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
