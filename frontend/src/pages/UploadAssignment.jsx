@@ -24,7 +24,7 @@ const UploadAssignment = () => {
       const token = localStorage.getItem('token'); // Get the JWT token from localStorage
 
       // Make the request to upload the file
-      const response = await axios.post(`http://localhost:5000/api/assignments/upload/${courseId}`, formData, {
+      const response = await axios.post(`https://education-managment.onrender.com/api/assignments/upload/${courseId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`, // Include the token in the request

@@ -10,7 +10,7 @@ const ViewGrades = () => {
     const fetchGrades = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/grades/my-grades', {
+        const response = await axios.get('https://education-managment.onrender.com/api/grades/my-grades', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -58,7 +58,7 @@ const ViewGrades = () => {
                 {grades.map((grade) => (
                   <tr key={grade._id}>
                     <td>{grade.course.title}</td>
-                    <td><a href={`http://localhost:5000/${grade.filePath}`} target="_blank" rel="noopener noreferrer">View Assignment</a></td>
+                    <td><a href={`https://education-managment.onrender.com/${grade.filePath}`} target="_blank" rel="noopener noreferrer">View Assignment</a></td>
                     <td>{grade.grade ? grade.grade : 'Not graded yet'}</td>
                   </tr>
                 ))}

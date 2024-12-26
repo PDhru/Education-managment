@@ -21,7 +21,7 @@ const EnrollmentChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/analytics/enrollment', {
+        const response = await axios.get('https://education-managment.onrender.com/api/analytics/enrollment', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setEnrollmentData(response.data.enrollmentData);

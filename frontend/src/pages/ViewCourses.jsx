@@ -17,13 +17,13 @@ const ViewCourses = () => {
         }
   
         // Fetch the current user's role
-        const userResponse = await axios.get('http://localhost:5000/api/auth/me', {
+        const userResponse = await axios.get('https://education-managment.onrender.com/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` } 
         });
         setRole(userResponse.data.role);
   
         // Fetch courses
-        const response = await axios.get('http://localhost:5000/api/courses/view', {
+        const response = await axios.get('https://education-managment.onrender.com/api/courses/view', {
           headers: { Authorization: `Bearer ${token}` } // Attach the token here
         });
         setCourses(response.data.courses);
@@ -39,7 +39,7 @@ const ViewCourses = () => {
   const handleDelete = async (courseId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/courses/${courseId}`, {
+      await axios.delete(`https://education-managment.onrender.com/api/courses/${courseId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCourses(courses.filter(course => course._id !== courseId));

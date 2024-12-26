@@ -10,7 +10,7 @@ const ViewEnrolledCourses = () => {
     const fetchEnrolledCourses = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/enrollcourses/my-courses', {
+        const response = await axios.get('https://education-managment.onrender.com/api/enrollcourses/my-courses', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setCourses(response.data.courses);

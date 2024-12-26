@@ -15,7 +15,7 @@ const Login = () => {
     const loginData = { email, password };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', loginData);
+      const response = await axios.post('https://education-managment.onrender.com/api/auth/login', loginData);
       
       if (response.data) {
         localStorage.setItem('token', response.data.token); 

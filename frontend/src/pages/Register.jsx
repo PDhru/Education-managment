@@ -22,7 +22,7 @@ const Register = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', userData);
+      const response = await axios.post('https://education-managment.onrender.com/api/auth/register', userData);
       if (response.data) {
         navigate('/login');
       }

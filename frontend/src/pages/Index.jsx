@@ -13,7 +13,7 @@ const Index = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/analytics/totals', {
+        const response = await axios.get('https://education-managment.onrender.com/api/analytics/totals', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
         });
         setData(response.data);

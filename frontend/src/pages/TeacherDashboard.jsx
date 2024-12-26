@@ -14,7 +14,7 @@ const TeacherDashboard = () => {
     const fetchCourses = async () => {
       try {
         const token = localStorage.getItem('token'); // Fetch token from localStorage
-        const response = await axios.get('http://localhost:5000/api/teacher/assigned-courses', {
+        const response = await axios.get('https://education-managment.onrender.com/api/teacher/assigned-courses', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCourses(response.data); // Set the fetched courses to state
@@ -44,7 +44,7 @@ const TeacherDashboard = () => {
   
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `http://localhost:5000/api/teacher/assign-grade/${assignmentId}`,
+        `https://education-managment.onrender.com/api/teacher/assign-grade/${assignmentId}`,
         { grade: gradeValue }, // Send grade as a number
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -97,7 +97,7 @@ const TeacherDashboard = () => {
                     <tr key={submission._id}>
                       <td>{submission.student.name}</td>
                       <td>
-                        <a href={`http://localhost:5000/${submission.filePath}`} target="_blank" rel="noopener noreferrer">View Assignment</a>
+                        <a href={`https://education-managment.onrender.com/${submission.filePath}`} target="_blank" rel="noopener noreferrer">View Assignment</a>
                       </td>
                       <td>{submission.grade ? submission.grade : 'Not graded yet'}</td>
                       <td>

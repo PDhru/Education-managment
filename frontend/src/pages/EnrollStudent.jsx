@@ -16,7 +16,7 @@ const EnrollStudent = () => {
           throw new Error('No token found, please log in again');
         }
         // Fetch courses
-        const response = await axios.get('http://localhost:5000/api/courses/view', {
+        const response = await axios.get('https://education-managment.onrender.com/api/courses/view', {
           headers: { Authorization: `Bearer ${token}` } // Attach the token here
         });
         setCourses(response.data.courses);
@@ -40,7 +40,7 @@ const EnrollStudent = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:5000/api/enrollcourses/enroll', // Updated URL
+        'https://education-managment.onrender.com/api/enrollcourses/enroll', // Updated URL
         {
           studentEmail,
           courseId: selectedCourse,

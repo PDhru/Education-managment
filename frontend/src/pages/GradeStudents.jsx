@@ -16,7 +16,7 @@ const GradeStudents = () => {
     const fetchSubmissions = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/grades/submissions/${courseId}`, {
+        const response = await axios.get(`https://education-managment.onrender.com/api/grades/submissions/${courseId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -33,7 +33,7 @@ const GradeStudents = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `http://localhost:5000/api/grades/grade/${assignmentId}`,
+        `https://education-managment.onrender.com/api/grades/grade/${assignmentId}`,
         { grade },
         {
           headers: {
@@ -88,7 +88,7 @@ const GradeStudents = () => {
                 {submissions.map((submission) => (
                   <tr key={submission._id}>
                     <td>{submission.student.name}</td>
-                    <td><a href={`http://localhost:5000/${submission.filePath}`} target="_blank" rel="noopener noreferrer">Download</a></td>
+                    <td><a href={`https://education-managment.onrender.com/${submission.filePath}`} target="_blank" rel="noopener noreferrer">Download</a></td>
                     <td>{submission.grade || 'Not graded yet'}</td>
                     <td>
                       <input

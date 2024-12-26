@@ -21,7 +21,7 @@ const AddCourse = () => {
       const fetchCourseDetails = async () => {
         try {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://localhost:5000/api/courses/${courseId}`, {
+          const response = await axios.get(`https://education-managment.onrender.com/api/courses/${courseId}`, {
             headers: { Authorization: `Bearer ${token}` }
           });
   
@@ -64,9 +64,9 @@ const AddCourse = () => {
 
       let response;
       if (courseId) {
-        response = await axios.put(`http://localhost:5000/api/courses/edit/${courseId}`, courseData, config);
+        response = await axios.put(`https://education-managment.onrender.com/api/courses/edit/${courseId}`, courseData, config);
       } else {
-        response = await axios.post('http://localhost:5000/api/courses/create', courseData, config);
+        response = await axios.post('https://education-managment.onrender.com/api/courses/create', courseData, config);
       }
       if (response.data) {
         setSuccess(`Course ${courseId ? 'updated' : 'added'} successfully!`);

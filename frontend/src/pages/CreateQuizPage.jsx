@@ -17,7 +17,7 @@ const CreateQuizPage = () => {
     const fetchCourses = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/teacher/courses', {
+        const response = await axios.get('https://education-managment.onrender.com/api/teacher/courses', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCourses(response.data); // Populate the dropdown with fetched courses
@@ -43,7 +43,7 @@ const CreateQuizPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/quiz/create',
+        'https://education-managment.onrender.com/api/quiz/create',
         { title, courseId, questions },
         { headers: { Authorization: `Bearer ${token}` } }
       );

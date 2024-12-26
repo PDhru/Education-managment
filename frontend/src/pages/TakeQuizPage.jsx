@@ -13,7 +13,7 @@
 //     const fetchQuiz = async () => {
 //       try {
 //         const token = localStorage.getItem('token');
-//         const response = await axios.get(`http://localhost:5000/api/quiz/${quizId}`, {
+//         const response = await axios.get(`https://education-managment.onrender.com/api/quiz/${quizId}`, {
 //           headers: { Authorization: `Bearer ${token}` },
 //         });
 //         setQuiz(response.data);
@@ -30,7 +30,7 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const response = await axios.post(
-//         `http://localhost:5000/api/student/submit-quiz/${quizId}`,
+//         `https://education-managment.onrender.com/api/student/submit-quiz/${quizId}`,
 //         { answers },
 //         { headers: { Authorization: `Bearer ${token}` } }
 //       );
@@ -101,7 +101,7 @@ const TakeQuizPage = () => {
     const fetchQuiz = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:5000/api/quiz/${quizId}`, {
+        const response = await axios.get(`https://education-managment.onrender.com/api/quiz/${quizId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setQuiz(response.data);
@@ -120,7 +120,7 @@ const TakeQuizPage = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        `http://localhost:5000/api/quiz/submit/${quizId}`,
+        `https://education-managment.onrender.com/api/quiz/submit/${quizId}`,
         { answers },
         { headers: { Authorization: `Bearer ${token}` } }
       );

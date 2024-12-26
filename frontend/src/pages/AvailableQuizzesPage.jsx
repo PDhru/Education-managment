@@ -11,7 +11,7 @@ const AvailableQuizzesPage = () => {
     const fetchQuizzes = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/student/quizzes', {
+        const response = await axios.get('https://education-managment.onrender.com/api/student/quizzes', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setQuizzes(response.data);

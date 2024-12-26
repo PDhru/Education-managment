@@ -26,7 +26,7 @@ const CreateQuiz = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post(`http://localhost:5000/api/quizzes/create`, {
+      const response = await axios.post(`https://education-managment.onrender.com/api/quizzes/create`, {
         courseId,
         questions,
       }, {

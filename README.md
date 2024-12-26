@@ -87,7 +87,7 @@ Start the backend server:
 bash
 Copy code
 npm run server
-The backend will run at http://localhost:5000.
+The backend will run at https://education-managment.onrender.com.
 
 Frontend Setup
 Navigate to the frontend folder:
@@ -104,7 +104,7 @@ Create a .env file in the frontend directory with the following variables:
 
 arduino
 Copy code
-REACT_APP_API_URL=http://localhost:5000
+REACT_APP_API_URL=https://education-managment.onrender.com
 Start the frontend server:
 
 bash
